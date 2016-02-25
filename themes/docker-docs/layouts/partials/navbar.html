@@ -1,54 +1,112 @@
 <aside class="nav-docs">
-  <nav id="multiple" data-accordion-group>
-    {{ partial "product-navbar.html" . }}
-    {{ $currentNode := . }}
-    {{ range .Site.Menus.main }}
-    <section data-accordion>
-      {{ if .HasChildren }}
-      <article data-accordion>
-        <button data-control class="split-button">
-          <a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
-          <span></span>
-        </button>
-        <div data-content>
-          {{ range .Children }}
-          {{if .HasChildren}}
-          <article data-accordion>
-            <button data-control style="margin-left: .75em;" class="split-button">
-              <a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
-              <span></span>
-            </button>
-            <div data-content>
-              {{ range .Children }}
-              {{if .HasChildren}}
-              <article data-accordion>
-                <button data-control class="split-button">
-                  <a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
-                  <span></span>
-                </button>
-                <div data-content>
-                  {{ range .Children }}
-                  <a data-link href="{{ .URL }}" class="{{if $currentNode.IsMenuCurrent "main" . }} active{{end}}">{{ .Pre }} {{ .Name }}</a>
-                  {{ end }}
-                </div>
-              </article>
-              {{else}}
-              <a data-link href="{{ .URL }}" style="margin-left: 1.25em;" class="{{if $currentNode.IsMenuCurrent "main" . }} active{{end}}">{{ .Pre }} {{ .Name }}</a>
-              {{end}}
 
-              {{end}}
-            </div>
-          </article>
-          {{else}}
-          <a data-link href="{{ .URL }}" class="{{if $currentNode.IsMenuCurrent "main" . }} active{{end}}">{{ .Pre }} {{ .Name }}</a>
-          {{end}}
-          {{end}}
-        </div>
-      </article>
-      {{else}}
-      <a data-link href="{{ .URL }}" class="{{if $currentNode.IsMenuCurrent "main" . }} active{{end}}">{{ .Pre }} {{ .Name }}</a>
-      {{end}}
-    </section>
-    {{end}}
+  <!-- {{ partial "engine-navbar.html" . }} -->
+  <nav class="global-nav menu">
+    <ul>
+      <li>
+        <a class="site-nav-docs-link">Docs <span>>></span></a>
+      </li>
+      <li>
+        <a>Support</a>
+      </li>
+      <li>
+        <a>Training</a>
+      </li>
+      <li>
+        <a>Tech Blog</a>
+      </li>
+      <li>
+        <a>Blog</a>
+      </li>
+      <li>
+        <a>Docker Blog</a>
+      </li>
+    </ul>
   </nav>
+
+  <nav class="site-nav-docs menu">
+    <ul>
+      <li>
+        <a class="nav-docs-back"><span><<</span> BACK</a>
+      </li>
+      <li>
+        <a>Get Started with Docker</a>
+      </li>
+      <li>
+        <a class="product-docker-toolbox-link">Docker Toolbox <span>>></span></a>
+      </li>
+      <li>
+        <a path="engine" class="product-engine-link">Engine <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-machine-link">Machine <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-swarm-link">Swarm <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-compose-link">Compose <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-docker-trusted-registry-link">Docker Trusted Registry <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-docker-hub-link">Docker Hub <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-docker-cloud-link">Docker Cloud <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-universal-control-plane-link">Universal Control Plane <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-component-projects-link">Component Projects <span>>></span></a>
+      </li>
+      <li>
+        <a class="product-open-source-link">Open Source Guide <span>>></span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- <nav class="nav-loading menu">
+    !!!! LOADING SPINNER !!!!
+  </nav> -->
+
+  <nav class="product-engine nav-product menu">
+    <a class="site-nav-docs-back"><span><<</span> BACK</a>
+    {{ partial "engine-navbar.html" . }}
+  </nav>
+
+  <!-- <nav class="global-nav active">
+  </nav>
+
+  <nav class="site-nav-docs">
+  </nav>
+
+  <nav class="product-docker-toolbox nav-product">
+  </nav>
+
+  <nav class="product-machine nav-product">
+  </nav>
+
+  <nav class="product-compose product nav-product">
+  </nav>
+
+  <nav class="product-docker-trusted-registry nav-product">
+  </nav>
+
+  <nav class="product-docker-hub nav-product">
+  </nav>
+
+  <nav class="product-docker-cloud nav-product">
+  </nav>
+
+  <nav class="product-universal-control-plane nav-product">
+  </nav>
+
+  <nav class="product-component-projects nav-product">
+  </nav>
+
+  <nav class="product-open-source-guide nav-product">
+  </nav> -->
 </aside>

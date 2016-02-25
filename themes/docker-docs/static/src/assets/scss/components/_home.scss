@@ -3,6 +3,12 @@
   text-align: center;
   h1 {
     font-weight: 400;
+    @media #{$medium-only} {
+      display: none;
+    }
+    @media #{$small-only} {
+      display: none;
+    }
   }
   .cta {
     margin-top: 1rem;
@@ -39,12 +45,19 @@
 }
 
 li.product-tile {
-  margin-bottom: 2rem;
   text-align: center;
   display: block;
   padding: 1rem;
-  border: 1px solid transparent;
   @extend %primary-transition;
+  > div {
+    border: 2px solid $docker-lt-gray;
+    padding: 1rem;
+    height: 100%;
+    border-radius: 7px;
+    &:hover {
+      border: 2px solid $docker-blue;
+    }
+  }
   > a {
     display: block;
     &:hover {
@@ -58,17 +71,36 @@ li.product-tile {
   }
   svg {
     display: block;
-    width: 8rem;
-    margin: auto;
+    width: 25%;
+    height: 5.5rem;
     color: $docker-gray;
-  }
-  &:hover {
-    border: 1px solid darken($docker-bg, 8%);
+    float: left;
+    height: 80px;
+    display: table-cell;
+    vertical-align: middle;
   }
   p {
     color: $body-font-color;
+    clear: both;
+    margin-top: 1em;
+    font-weight: 500;
+  }
+  h3 {
+    font-weight: 500;
+    letter-spacing: 0px;
+    width: 65%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 80px;
+    text-align: left;
+    padding-left: 5%;
+    text-align: left;
   }
   .link {
     color: $secondary-color;
   }
+}
+
+section.products-list-container {
+  max-width: 100%;
 }
